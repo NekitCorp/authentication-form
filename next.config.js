@@ -1,5 +1,5 @@
 const isProd = process.env.NODE_ENV === 'production';
-const repositoryName = 'authentication-form';
+const repositoryName = process.env.REPOSITORY_NAME;
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

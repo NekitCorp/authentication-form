@@ -13,6 +13,8 @@ jobs:
               uses: actions/setup-node@v3
               with:
                   node-version: '16.x'
+            env:
+                REPOSITORY_NAME: ${{ github.event.repository.name }}
             # Install dependencies
             - run: yarn
             # Lint
