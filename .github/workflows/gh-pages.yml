@@ -7,14 +7,14 @@ on:
 jobs:
     test:
         runs-on: ubuntu-latest
+        env:
+            REPOSITORY_NAME: ${{ github.event.repository.name }}
         steps:
             - uses: actions/checkout@v3
             - name: Use Node.js
               uses: actions/setup-node@v3
               with:
                   node-version: '16.x'
-            - env:
-                  REPOSITORY_NAME: ${{ github.event.repository.name }}
             # Install dependencies
             - run: yarn
             # Lint
