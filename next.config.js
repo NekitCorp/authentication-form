@@ -7,6 +7,9 @@ const nextConfig = {
     // Fix hosting Next.js on GitHub Pages
     // https://github.com/vercel/next.js/issues/3335
     basePath: isProd ? `/${repositoryName}` : '',
+    env: {
+        REPOSITORY_NAME: repositoryName,
+    },
     experimental: {
         images: {
             unoptimized: true,
