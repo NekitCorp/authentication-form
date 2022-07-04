@@ -1,0 +1,58 @@
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    border: 0 !important;
+    white-space: nowrap !important;
+}
+
+button {
+    margin-top: 1rem;
+}
+
+.has-js::-ms-reveal {
+    display: none;
+}
+
+.has-js::reveal {
+    display: none;
+}
+
+.reveal-password {
+    padding: 0.2em 1em;
+    text-transform: capitalize;
+    border: none;
+    background: #555;
+    border-radius: 0;
+    display: inline-grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    margin-top: 0;
+}
+
+.reveal-password::before {
+    content: attr(data-text-show);
+    grid-area: 1 / 1;
+    height: 0;
+    visibility: hidden;
+}
+
+.submit {
+    margin-top: 2rem;
+}
+
+input {
+    border: 1px solid;
+    padding: 0.3em;
+}
+
+label {
+    display: block;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
