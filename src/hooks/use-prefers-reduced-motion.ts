@@ -11,7 +11,9 @@ const getInitialState = () => {
     return isRenderingOnServer ? true : !window.matchMedia(QUERY).matches;
 };
 
-// https://www.joshwcomeau.com/snippets/react-hooks/use-prefers-reduced-motion/
+/**
+ * https://www.joshwcomeau.com/snippets/react-hooks/use-prefers-reduced-motion/
+ */
 export function usePrefersReducedMotion() {
     const [prefersReducedMotion, setPrefersReducedMotion] = React.useState(getInitialState);
 

@@ -3,7 +3,7 @@ import styles from './form.module.css';
 export const Form: React.FC = () => {
     return (
         <div className={styles.container}>
-            <form>
+            <form className={styles.form}>
                 <div>
                     <label htmlFor="email">Email</label>
                     <input required type="email" id="email" name="email" autoComplete="email" />

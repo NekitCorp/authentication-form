@@ -1,21 +1,25 @@
 import clsx from 'clsx';
 import Image from 'next/image';
-import { useWindowSize } from 'react-use';
+import React from 'react';
+import { useMedia, useWindowSize } from 'react-use';
 import { useMousePosition, usePrefersReducedMotion } from '../../hooks';
 import styles from './background.module.css';
 import { elements, MOTION_SPEED } from './data';
 
-type BackgroundProps = {
-    className?: string;
-};
-
-export const Background: React.FC<BackgroundProps> = () => {
+export const Background: React.FC = () => {
     const mousePosition = useMousePosition();
     const prefersReducedMotion = usePrefersReducedMotion();
     const { width, height } = useWindowSize();
+    const isTouchDevice = useMedia('(hover: none)');
 
-    const x = Math.ceil((mousePosition.x / width) * MOTION_SPEED);
-    const y = Math.ceil((mousePosition.y / height) * MOTION_SPEED);
+    const x = React.useMemo(
+        () => (prefersReducedMotion || isTouchDevice ? 0 : Math.ceil((mousePosition.x / width) * MOTION_SPEED)),
+        [isTouchDevice, mousePosition.x, prefersReducedMotion, width],
+    );
+    const y = React.useMemo(
+        () => (prefersReducedMotion || isTouchDevice ? 0 : Math.ceil((mousePosition.y / height) * MOTION_SPEED)),
+        [prefersReducedMotion, isTouchDevice, mousePosition.y, height],
+    );
 
     return (
         <div className={styles.container}>
@@ -25,7 +29,7 @@ export const Background: React.FC<BackgroundProps> = () => {
                     className={clsx(styles.element, element.className)}
                     style={{ transform: `translate(${x}px, ${y}px)` }}
                 >
-                    <Image src={element.src} alt="" width={element.width} height={element.height} />
+                    <Image src={element.src} alt="" fill />
                 </div>
             ))}
         </div>

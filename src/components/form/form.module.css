@@ -1,71 +1,27 @@
 .container {
+    width: 100%;
+    height: 100vh;
+    padding: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 690px;
-    height: 690px;
-    z-index: 1;
-    background: rgb(255 255 255 / 10%);
-    border-radius: 40px;
-    backdrop-filter: blur(5px);
-    border: 3px solid #6a6686;
+
+    /* mobile viewport bug fix */
+    /* stylelint-disable-next-line value-no-vendor-prefix */
+    max-height: -webkit-fill-available;
 }
 
-.visually-hidden {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-    clip: rect(0 0 0 0) !important;
-    clip-path: inset(50%) !important;
-    border: 0 !important;
-    white-space: nowrap !important;
-}
-
-.button {
-    margin-top: 1rem;
-}
-
-/* .has-js::-ms-reveal {
-    display: none;
-}
-
-.has-js::reveal {
-    display: none;
-} */
-
-.reveal-password {
-    padding: 0.2em 1em;
-    text-transform: capitalize;
-    border: none;
-    background: #555;
-    border-radius: 0;
-    display: inline-grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    margin-top: 0;
-}
-
-.reveal-password::before {
-    content: attr(data-text-show);
-    grid-area: 1 / 1;
-    height: 0;
-    visibility: hidden;
-}
-
-.submit {
-    margin-top: 2rem;
-}
-
-.input {
-    border: 1px solid;
-    padding: 0.3em;
-}
-
-.label {
-    display: block;
-    font-size: 1.2rem;
-    margin-top: 1rem;
+.form {
+    flex: 1;
+    height: 100%;
+    max-width: 690px;
+    max-height: 690px;
+    background: rgb(var(--main-color) / 10%);
+    border: 3px solid rgb(var(--main-color) / 70%);
+    border-radius: calc(var(--border-radius) * 4);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
