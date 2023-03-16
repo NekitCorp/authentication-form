@@ -1,12 +1,18 @@
 :root {
     --border-radius: 10px;
-    --main-color: 255 255 255;
-    --background-color: linear-gradient(287.56deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    --main-color: 88 130 193;
+    --primary-text-color: 255 255 255;
+    --secondary-text-color: 188 190 192;
+    --input-text-color: 51 51 51;
+    --button-color: 0 52 101;
+    --background-color: radial-gradient(58.43% 103.88% at 56.74% 50%, #0085ff 0%, #003465 100%);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        /* TODO: dark theme */
+        --main-color: 255 255 255;
+        --button-color: 189 12 71;
+        --background-color: linear-gradient(287.56deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
     }
 }
 
@@ -25,6 +31,11 @@ body {
 a {
     color: inherit;
     text-decoration: none;
+}
+
+button,
+input {
+    font-family: inherit;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -4,7 +4,20 @@ import localFont from 'next/font/local';
 import Head from 'next/head';
 
 // Font files can be colocated inside of `pages`
-const gilroyFont = localFont({ src: './Gilroy-Light.otf' });
+const gilroyFont = localFont({
+    src: [
+        {
+            path: './Gilroy-Light.otf',
+            weight: '400',
+            style: 'normal',
+        },
+        {
+            path: './Gilroy-ExtraBold.otf',
+            weight: '700',
+            style: 'normal',
+        },
+    ],
+});
 
 export default function App({ Component, pageProps }: AppProps) {
     return (

@@ -1,30 +1,45 @@
+import Image from 'next/image';
 import styles from './form.module.css';
 
 export const Form: React.FC = () => {
     return (
         <div className={styles.container}>
             <form className={styles.form}>
-                <div>
-                    <label htmlFor="email">Email</label>
-                    <input required type="email" id="email" name="email" autoComplete="email" />
-                </div>
-                <div>
-                    <label htmlFor="password">Password</label>
+                <p className={styles.logo}>Your logo</p>
+                <h1 className={styles.header}>Login</h1>
+                <div className={styles.inputContainer}>
+                    <label className={styles.label} htmlFor="email">
+                        Email
+                    </label>
                     <input
+                        className={styles.input}
+                        required
+                        type="email"
+                        id="email"
+                        name="email"
+                        autoComplete="email"
+                        placeholder="username@gmail.com"
+                    />
+                </div>
+                <div className={styles.inputContainer}>
+                    <label className={styles.label} htmlFor="password">
+                        Password
+                    </label>
+                    <input
+                        className={styles.input}
                         required
                         minLength={8}
                         type="password"
                         id="password"
-                        className="password-field"
                         name="password"
                         aria-describedby="password-minlength"
                         autoComplete="new-password"
+                        placeholder="Password"
                     />
                     <button
                         type="button"
                         hidden
                         data-pressed="false"
-                        className="reveal-password"
                         aria-controls="password"
                         data-text-show="Show password"
                         data-text-hide="Hide password"
@@ -39,7 +54,23 @@ export const Form: React.FC = () => {
                     ></span>
                     <div id="password-minlength">Eight or more characters</div>
                 </div>
-                <button className="submit">Sign up</button>
+                <a href="#">Forgot Password?</a>
+                <button className={styles.signInButton}>Sign in</button>
+                <p>or continue with</p>
+                <div className={styles.providers}>
+                    <button className={styles.providerButton} type="button">
+                        <Image src="google.svg" alt="google icon" width={24} height={24} />
+                    </button>
+                    <button className={styles.providerButton} type="button">
+                        <Image src="github.svg" alt="github icon" width={24} height={24} />
+                    </button>
+                    <button className={styles.providerButton} type="button">
+                        <Image src="facebook.svg" alt="facebook icon" width={24} height={24} />
+                    </button>
+                </div>
+                <p>
+                    Don’t have an account yet? <a href="#">Register for free</a>
+                </p>
             </form>
         </div>
     );

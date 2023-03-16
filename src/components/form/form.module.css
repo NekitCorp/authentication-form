@@ -16,12 +16,97 @@
     height: 100%;
     max-width: 690px;
     max-height: 690px;
+    padding: 48px 96px;
     background: rgb(var(--main-color) / 10%);
-    border: 3px solid rgb(var(--main-color) / 70%);
+    border: 3px solid rgb(var(--main-color) / 30%);
     border-radius: calc(var(--border-radius) * 4);
     backdrop-filter: blur(8px);
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-direction: column;
+    color: rgb(var(--primary-text-color));
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 13px;
+}
+
+.header {
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 46px;
+    margin-bottom: 26px;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.label {
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.input {
+    font-size: 14px;
+    line-height: 16px;
+    padding: 17px 23px;
+    background-color: rgb(var(--primary-text-color));
+    border: 1px solid rgb(var(--secondary-text-color));
+    border-radius: var(--border-radius);
+    color: rgb(var(--input-text-color));
+}
+
+.input::placeholder {
+    color: rgb(var(--secondary-text-color));
+}
+
+.signInButton {
+    color: rgb(var(--primary-text-color));
+    background-color: rgb(var(--button-color));
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 13px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+.signInButton:hover {
+    background-color: rgb(var(--button-color) / 80%);
+}
+
+.signInButton:active {
+    background-color: rgb(var(--button-color) / 70%);
+}
+
+.providers {
+    display: flex;
+    gap: 24px;
+}
+
+.providerButton {
+    flex: 1;
+    background-color: rgb(var(--primary-text-color));
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 13px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.providerButton:hover {
+    background-color: rgb(var(--primary-text-color) / 80%);
+}
+
+.providerButton:active {
+    background-color: rgb(var(--primary-text-color) / 70%);
 }
