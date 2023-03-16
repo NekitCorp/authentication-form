@@ -1,0 +1,63 @@
+.container {
+    background: linear-gradient(287.56deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.element {
+    position: absolute;
+    transition: transform 100ms ease-out;
+}
+
+/* element styles */
+
+.redElement1 {
+    left: -13%;
+    top: 62%;
+    filter: opacity(50%);
+}
+
+.redElement2 {
+    left: 49%;
+    top: 10%;
+}
+
+.greenElement1 {
+    left: 20%;
+    top: 44%;
+}
+
+.greenElement2 {
+    left: 23%;
+    top: 28%;
+    z-index: 2;
+}
+
+.blueElement1 {
+    left: 66%;
+    top: 68%;
+    z-index: 2;
+}
+
+.blueElement2 {
+    left: 70%;
+    top: 75%;
+}
+
+.blueElement3 {
+    right: -20%;
+    top: 85%;
+    filter: opacity(50%);
+}
+
+.blueElement4 {
+    left: 23%;
+    top: 58%;
+}
+
+.blueElement5 {
+    left: 25%;
+    top: -15%;
+    filter: opacity(50%);
+}

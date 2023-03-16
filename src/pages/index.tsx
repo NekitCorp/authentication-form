@@ -1,3 +1,4 @@
+import { HomePage } from '@/components/home-page';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
@@ -12,7 +13,7 @@ const Home: NextPage = () => {
                 />
             </Head>
 
-            {/* <HomePage /> */}
+            <HomePage />
         </>
     );
 };
