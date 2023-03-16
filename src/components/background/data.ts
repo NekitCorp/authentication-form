@@ -1,4 +1,4 @@
-import styles from './Background.module.css';
+import styles from './background.module.css';
 
 type Element = {
     src: string;

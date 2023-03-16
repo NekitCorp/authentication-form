@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import { useWindowSize } from 'react-use';
 import { useMousePosition, usePrefersReducedMotion } from '../../hooks';
-import styles from './Background.module.css';
+import styles from './background.module.css';
 import { elements, MOTION_SPEED } from './data';
 
 type BackgroundProps = {
