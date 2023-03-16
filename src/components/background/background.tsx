@@ -10,16 +10,10 @@ export const Background: React.FC = () => {
     const mousePosition = useMousePosition();
     const prefersReducedMotion = usePrefersReducedMotion();
     const { width, height } = useWindowSize();
-    const isTouchDevice = useMedia('(hover: none)');
+    const isTouchDevice = useMedia('(hover: none)', true);
 
-    const x = React.useMemo(
-        () => (prefersReducedMotion || isTouchDevice ? 0 : Math.ceil((mousePosition.x / width) * MOTION_SPEED)),
-        [isTouchDevice, mousePosition.x, prefersReducedMotion, width],
-    );
-    const y = React.useMemo(
-        () => (prefersReducedMotion || isTouchDevice ? 0 : Math.ceil((mousePosition.y / height) * MOTION_SPEED)),
-        [prefersReducedMotion, isTouchDevice, mousePosition.y, height],
-    );
+    const x = mousePosition.x / width;
+    const y = mousePosition.y / height;
 
     return (
         <div className={styles.container}>
@@ -27,7 +21,15 @@ export const Background: React.FC = () => {
                 <div
                     key={i}
                     className={clsx(styles.element, element.className)}
-                    style={{ transform: `translate(${x}px, ${y}px)` }}
+                    style={
+                        prefersReducedMotion || isTouchDevice
+                            ? undefined
+                            : {
+                                  transform: `translate(${Math.ceil(x * element.motionSpeed)}px, ${Math.ceil(
+                                      y * element.motionSpeed,
+                                  )}px)`,
+                              }
+                    }
                 >
                     <Image src={element.src} alt="" fill />
                 </div>
