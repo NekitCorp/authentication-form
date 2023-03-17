@@ -7,13 +7,14 @@
 
 .element {
     --width: var(--start-width);
-    --height: var(--start-width);
+    --height: var(--start-height);
 
     /* spacing between form and screen */
-    --form-spacing: (100% - min(var(--form-max-width), 100%)) / 2;
+    --form-vertical-spacing: (100% - min(var(--form-max-height), 100%)) / 2;
+    --form-horizontal-spacing: (100% - min(var(--form-max-width), 100%)) / 2;
 
     position: absolute;
-    transition: transform 100ms ease-out;
+    transition: transform 250ms ease-out;
     width: var(--width);
     height: var(--height);
 }
@@ -24,8 +25,8 @@
     --start-width: 222px;
     --start-height: 207px;
 
-    left: -20%;
-    top: 70%;
+    left: calc(-1 * var(--width) / 2);
+    bottom: calc(-1 * var(--height) / 2);
     filter: opacity(50%);
 }
 
@@ -34,14 +35,14 @@
     --start-height: 207px;
 
     left: 49%;
-    top: 10%;
+    top: calc(var(--form-vertical-spacing) - 5%);
 }
 
 .greenElement1 {
     --start-width: 51px;
     --start-height: 28px;
 
-    left: calc(var(--form-spacing) - (var(--width) / 2));
+    left: calc(var(--form-horizontal-spacing) - (var(--width) / 2));
     top: 41%;
 }
 
@@ -49,7 +50,7 @@
     --start-width: 81px;
     --start-height: 44px;
 
-    left: calc(var(--form-spacing) - (var(--width) / 2));
+    left: calc(var(--form-horizontal-spacing) - (var(--width) / 2));
     top: 34%;
     z-index: 2;
 }
@@ -58,7 +59,7 @@
     --start-width: 58px;
     --start-height: 18px;
 
-    right: calc(var(--form-spacing) - (var(--width) / 2));
+    right: calc(var(--form-horizontal-spacing) - (var(--width) / 2));
     top: 68%;
     z-index: 2;
 }
@@ -67,7 +68,7 @@
     --start-width: 58px;
     --start-height: 18px;
 
-    right: calc(var(--form-spacing) - (var(--width) * 2 / 3));
+    right: calc(var(--form-horizontal-spacing) - (var(--width) * 2 / 3));
     top: 71%;
 }
 
@@ -75,8 +76,8 @@
     --start-width: 241px;
     --start-height: 77px;
 
-    right: -20%;
-    top: 90%;
+    right: calc(-1 * var(--width) / 2);
+    bottom: calc(-1 * var(--height) / 3 * 2);
     filter: opacity(50%);
 }
 
@@ -93,7 +94,7 @@
     --start-height: 90px;
 
     left: 25%;
-    top: 0%;
+    top: calc(-1 * var(--height) / 2);
     filter: opacity(50%);
 }
 
@@ -109,16 +110,12 @@
     }
 
     .greenElement2 {
-        left: calc(var(--form-spacing) - (var(--width) * 2 / 3));
+        left: calc(var(--form-horizontal-spacing) - (var(--width) * 2 / 3));
         top: 34%;
     }
 
     .blueElement2 {
         top: 74%;
-    }
-
-    .blueElement5 {
-        top: -6%;
     }
 }
 
@@ -135,9 +132,5 @@
 
     .blueElement2 {
         top: 76%;
-    }
-
-    .blueElement5 {
-        top: -20%;
     }
 }
