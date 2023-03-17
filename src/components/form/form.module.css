@@ -47,12 +47,21 @@
     gap: 5px;
 }
 
+.emailInputContainer {
+    margin-bottom: 30px;
+}
+
+.passwordInputContainer {
+    margin-bottom: 17px;
+}
+
 .label {
     font-size: 18px;
     line-height: 21px;
 }
 
 .input {
+    width: 100%;
     font-size: 14px;
     line-height: 16px;
     padding: 17px 23px;
@@ -67,6 +76,7 @@
 }
 
 .signInButton {
+    margin-bottom: 32px;
     color: rgb(var(--primary-text-color));
     background-color: rgb(var(--button-color));
     border: none;
@@ -94,6 +104,7 @@
 
 .providerButton {
     flex: 1;
+    margin-bottom: 32px;
     background-color: rgb(var(--primary-text-color));
     border: none;
     border-radius: var(--border-radius);
@@ -109,4 +120,46 @@
 
 .providerButton:active {
     background-color: rgb(var(--primary-text-color) / 70%);
+}
+
+.passwordInputWrapper {
+    position: relative;
+}
+
+.showPasswordButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    padding: 8px;
+    transform: translate(0, -50%);
+    border-radius: var(--border-radius);
+}
+
+.showPasswordButton:hover {
+    background-color: rgb(var(--secondary-text-color) / 15%);
+}
+
+.showPasswordButton:active {
+    background-color: rgb(var(--secondary-text-color) / 25%);
+}
+
+.forgotPasswordLink {
+    align-self: start;
+    margin-bottom: 42px;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.text {
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+}
+
+.continueWithText {
+    margin-bottom: 29px;
 }

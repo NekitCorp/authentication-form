@@ -4,7 +4,7 @@ import React from 'react';
 import { useMedia, useWindowSize } from 'react-use';
 import { useMousePosition, usePrefersReducedMotion } from '../../hooks';
 import styles from './background.module.css';
-import { elements, MOTION_SPEED } from './data';
+import { elements } from './data';
 
 export const Background: React.FC = () => {
     const mousePosition = useMousePosition();
@@ -21,15 +21,14 @@ export const Background: React.FC = () => {
                 <div
                     key={i}
                     className={clsx(styles.element, element.className)}
-                    style={
-                        prefersReducedMotion || isTouchDevice
-                            ? undefined
-                            : {
-                                  transform: `translate(${Math.ceil(x * element.motionSpeed)}px, ${Math.ceil(
+                    style={{
+                        transform:
+                            prefersReducedMotion || isTouchDevice
+                                ? undefined
+                                : `translate(${Math.ceil(x * element.motionSpeed)}px, ${Math.ceil(
                                       y * element.motionSpeed,
                                   )}px)`,
-                              }
-                    }
+                    }}
                 >
                     <Image src={element.src} alt="" fill />
                 </div>

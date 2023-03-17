@@ -17,5 +17,3 @@ export const elements: Element[] = [
     { src: 'background/blue-element-2.svg', className: styles.blueElement4, motionSpeed: 15 },
     { src: 'background/blue-element-3.svg', className: styles.blueElement5, motionSpeed: 20 },
 ];
-
-export const MOTION_SPEED = 30;
