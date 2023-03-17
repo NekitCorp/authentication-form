@@ -1,14 +1,51 @@
 import clsx from 'clsx';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import React from 'react';
 import styles from './form.module.css';
 
+interface FormElements extends HTMLFormControlsCollection {
+    email: HTMLInputElement;
+    password: HTMLInputElement;
+}
+interface UsernameFormElement extends HTMLFormElement {
+    readonly elements: FormElements;
+}
+
 export const Form: React.FC = () => {
+    const router = useRouter();
     const [showPassword, setShowPassword] = React.useState(false);
+    const [error, setError] = React.useState('');
+
+    const handleSubmit = async (event: React.FormEvent<UsernameFormElement>) => {
+        event.preventDefault();
+
+        const data = {
+            email: event.currentTarget.elements.email.value,
+            password: event.currentTarget.elements.password.value,
+        };
+
+        try {
+            const response = await fetch('/api/form', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            });
+            const json = await response.json();
+
+            if (response.ok) {
+                router.push('/success');
+            } else {
+                setError(json.error);
+            }
+        } catch (error) {
+            setError(error instanceof Error ? error.message : 'Unknown error');
+        }
+    };
 
     return (
         <div className={styles.container}>
-            <form className={styles.form}>
+            <form className={styles.form} onSubmit={handleSubmit}>
                 <p className={styles.logo}>Your logo</p>
                 <h1 className={styles.header}>Login</h1>
                 <div className={clsx(styles.inputContainer, styles.emailInputContainer)}>

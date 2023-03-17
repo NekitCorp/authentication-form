@@ -10,7 +10,8 @@
         "stylelint": "stylelint \"src/**/*.css\""
     },
     "dependencies": {
-        "clsx": "^1.2.1",
+        "clsx": "1.2.1",
+        "msw": "1.1.0",
         "next": "13.2.4",
         "react": "18.2.0",
         "react-dom": "18.2.0",
@@ -26,5 +27,8 @@
         "stylelint": "15.2.0",
         "stylelint-config-standard": "30.0.1",
         "typescript": "4.9.5"
+    },
+    "msw": {
+        "workerDirectory": "public"
     }
 }
