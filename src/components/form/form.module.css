@@ -1,14 +1,10 @@
 .container {
     width: 100%;
-    height: 100vh;
+    height: calc(100 * var(--vh, 1vh));
     padding: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    /* mobile viewport bug fix */
-    /* stylelint-disable-next-line value-no-vendor-prefix */
-    max-height: -webkit-fill-available;
 }
 
 .form {

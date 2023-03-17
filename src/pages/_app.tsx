@@ -1,3 +1,4 @@
+import { useViewportUnit } from '@/hooks';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import localFont from 'next/font/local';
@@ -20,6 +21,8 @@ const gilroyFont = localFont({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+    useViewportUnit();
+
     return (
         <>
             <Head>
