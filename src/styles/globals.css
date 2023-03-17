@@ -5,7 +5,10 @@
     --secondary-text-color: 188 190 192;
     --input-text-color: 51 51 51;
     --button-color: 0 52 101;
+    --focus-color: 255 181 46;
     --background-color: radial-gradient(58.43% 103.88% at 56.74% 50%, #0085ff 0%, #003465 100%);
+    --form-max-width: 690px;
+    --form-max-height: 690px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -40,6 +43,13 @@ a:hover {
 button,
 input {
     font-family: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 2px dashed rgb(var(--focus-color));
+    outline-offset: 2px;
 }
 
 @media (prefers-color-scheme: dark) {

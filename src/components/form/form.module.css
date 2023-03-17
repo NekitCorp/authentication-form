@@ -14,9 +14,9 @@
 .form {
     flex: 1;
     height: 100%;
-    max-width: 690px;
-    max-height: 690px;
-    padding: 48px 96px;
+    max-width: var(--form-max-width);
+    max-height: var(--form-max-height);
+    padding: 16px 24px;
     background: rgb(var(--main-color) / 10%);
     border: 3px solid rgb(var(--main-color) / 30%);
     border-radius: calc(var(--border-radius) * 4);
@@ -162,4 +162,18 @@
 
 .continueWithText {
     margin-bottom: 29px;
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 700px) {
+    .form {
+        padding: 36px 64px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1120px) {
+    .form {
+        padding: 48px 96px;
+    }
 }
