@@ -18,6 +18,10 @@
         --button-color: 189 12 71;
         --background-color: linear-gradient(287.56deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
     }
+
+    html {
+        color-scheme: dark;
+    }
 }
 
 * {
@@ -71,10 +75,4 @@ input:focus-visible {
     clip-path: inset(50%) !important;
     border: 0 !important;
     white-space: nowrap !important;
-}
-
-@media (prefers-color-scheme: dark) {
-    html {
-        color-scheme: dark;
-    }
 }

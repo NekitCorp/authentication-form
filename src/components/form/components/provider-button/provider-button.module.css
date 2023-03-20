@@ -1,0 +1,18 @@
+.button {
+    flex: 1;
+    background-color: rgb(var(--primary-text-color));
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 13px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgb(var(--primary-text-color) / 80%);
+}
+
+.button:active {
+    background-color: rgb(var(--primary-text-color) / 70%);
+}

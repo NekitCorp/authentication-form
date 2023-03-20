@@ -35,7 +35,7 @@ export const ServerError: React.FC<ServerErrorProps> = ({ className, error }) =>
     }, [error]);
 
     return (
-        <p ref={ref} role="alert" className={clsx(className, fadeState && styles[fadeState])}>
+        <p ref={ref} role="alert" className={clsx(className, styles.error, fadeState && styles[fadeState])}>
             {savedError}
         </p>
     );

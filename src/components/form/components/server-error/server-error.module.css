@@ -1,3 +1,12 @@
+.error {
+    min-height: 42px;
+    color: rgb(var(--error-color));
+    padding: 6px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .fadeIn {
     animation: fade-in-down 0.5s;
 }

@@ -1,0 +1,52 @@
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.label {
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.input {
+    width: 100%;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 17px 23px;
+    background-color: rgb(var(--primary-text-color));
+    border: 1px solid rgb(var(--secondary-text-color));
+    border-radius: var(--border-radius);
+    color: rgb(var(--input-text-color));
+}
+
+.input::placeholder {
+    color: rgb(var(--secondary-text-color));
+}
+
+/* Password input specific styles */
+
+.passwordInputWrapper {
+    position: relative;
+}
+
+.showPasswordButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    padding: 8px;
+    transform: translate(0, -50%);
+    border-radius: var(--border-radius);
+}
+
+.showPasswordButton:hover {
+    background-color: rgb(var(--secondary-text-color) / 15%);
+}
+
+.showPasswordButton:active {
+    background-color: rgb(var(--secondary-text-color) / 25%);
+}

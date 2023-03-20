@@ -17,6 +17,8 @@
     transition: transform 250ms ease-out;
     width: var(--width);
     height: var(--height);
+    pointer-events: none;
+    user-select: none;
 }
 
 /* Element styles */
