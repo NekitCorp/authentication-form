@@ -12,7 +12,7 @@ const nextConfig = {
     // https://github.com/vercel/next.js/issues/3335
     basePath: isProd ? `/${repositoryName}` : '',
     env: {
-        REPOSITORY_NAME: repositoryName,
+        NEXT_PUBLIC_REPOSITORY_NAME: repositoryName,
     },
 };
 
