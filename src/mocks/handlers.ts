@@ -1,10 +1,11 @@
 import { rest } from 'msw';
+import { PREFIX } from './config';
 
 const EMAIL = 'admin@gmail.com';
 const PASSWORD = 'qwerty123456';
 
 export const handlers = [
-    rest.post('/api/form', async (req, res, ctx) => {
+    rest.post(`${PREFIX}/api/form`, async (req, res, ctx) => {
         const body = await req.json();
 
         if (body.email === EMAIL && body.password === PASSWORD) {
