@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
+import { ServerError } from './components/server-error';
 import styles from './form.module.css';
 
 interface FormElements extends HTMLFormControlsCollection {
@@ -15,7 +16,8 @@ interface UsernameFormElement extends HTMLFormElement {
 export const Form: React.FC = () => {
     const router = useRouter();
     const [showPassword, setShowPassword] = React.useState(false);
-    const [error, setError] = React.useState('');
+    const [error, setError] = React.useState<string | null>(null);
+    const [submitButtonCanShake, setSubmitButtonCanShake] = React.useState(false);
 
     const handleSubmit = async (event: React.FormEvent<UsernameFormElement>) => {
         event.preventDefault();
@@ -43,6 +45,13 @@ export const Form: React.FC = () => {
         }
     };
 
+    const handleSubmitButtonClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        setSubmitButtonCanShake(true);
+        e.currentTarget.addEventListener('animationend', () => setSubmitButtonCanShake(false), { once: true });
+    };
+
+    const clearError = () => setError(null);
+
     return (
         <div className={styles.container}>
             <form className={styles.form} onSubmit={handleSubmit}>
@@ -60,6 +69,7 @@ export const Form: React.FC = () => {
                         name="email"
                         autoComplete="email"
                         placeholder="username@gmail.com"
+                        onChange={clearError}
                     />
                 </div>
                 <div className={clsx(styles.inputContainer, styles.passwordInputContainer)}>
@@ -77,35 +87,40 @@ export const Form: React.FC = () => {
                             aria-describedby="password-minlength"
                             autoComplete="new-password"
                             placeholder="Password"
+                            onChange={clearError}
                         />
                         <button
                             className={styles.showPasswordButton}
                             onClick={() => setShowPassword((prev) => !prev)}
                             type="button"
-                            data-pressed="false"
                             aria-controls="password"
-                            data-text-show="Show password"
-                            data-text-hide="Hide password"
+                            aria-label={
+                                showPassword
+                                    ? 'Show password as plain text. Warning: this will display your password on the screen.'
+                                    : 'Hide password.'
+                            }
                         >
                             {showPassword ? (
-                                <Image src="eye-off.svg" alt="eye off icon" width={16} height={16} />
+                                <Image src="eye-off.svg" alt="Hide password icon" width={16} height={16} />
                             ) : (
-                                <Image src="eye.svg" alt="eye icon" width={16} height={16} />
+                                <Image src="eye.svg" alt="Show password icon" width={16} height={16} />
                             )}
                         </button>
+                        <span className="visually-hidden" aria-live="polite">
+                            {showPassword ? 'Your password is shown' : 'Your password is hidden'}
+                        </span>
                     </div>
-                    {/* <span
-                        data-text-shown="Your password is shown"
-                        data-text-hidden="Your password is hidden"
-                        className="visually-hidden password-announce"
-                        aria-live="polite"
-                    ></span>
-                    <div id="password-minlength">Eight or more characters</div> */}
                 </div>
                 <a href="#" className={styles.forgotPasswordLink}>
                     Forgot Password?
                 </a>
-                <button className={styles.signInButton}>Sign in</button>
+                <ServerError className={clsx(styles.text, styles.error)} error={error} />
+                <button
+                    className={clsx(styles.signInButton, { [styles.signInButtonShake]: submitButtonCanShake })}
+                    onClick={handleSubmitButtonClick}
+                >
+                    Sign in
+                </button>
                 <p className={clsx(styles.text, styles.continueWithText)}>or continue with</p>
                 <div className={styles.providers}>
                     <button className={styles.providerButton} type="button">

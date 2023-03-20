@@ -6,6 +6,7 @@
     --input-text-color: 51 51 51;
     --button-color: 0 52 101;
     --focus-color: 255 181 46;
+    --error-color: 255 0 0;
     --background-color: radial-gradient(58.43% 103.88% at 56.74% 50%, #0085ff 0%, #003465 100%);
     --form-max-width: 690px;
     --form-max-height: 690px;
@@ -54,6 +55,22 @@ a:focus-visible,
 input:focus-visible {
     outline: 2px dashed rgb(var(--focus-color));
     outline-offset: 2px;
+}
+
+/* https://web.dev/learn/forms/javascript/#ensure-users-can-see-the-password-they-entered */
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    /* stylelint-disable-next-line property-no-vendor-prefix */
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    border: 0 !important;
+    white-space: nowrap !important;
 }
 
 @media (prefers-color-scheme: dark) {
