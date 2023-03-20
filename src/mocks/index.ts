@@ -16,7 +16,7 @@ async function initMocks() {
                     // Override the scope to the root ("/").
                     // By default, the worker is scoped to its location on your server,
                     // which in this case would be "/prefix".
-                    scope: PREFIX,
+                    scope: `${PREFIX}/`,
                 },
             },
         });
