@@ -4,6 +4,8 @@ Convenient and beautiful form of authentication via mail and password without re
 
 [Figma design](<https://www.figma.com/file/Gt2nidMYiUN7muTCv4jJw6/Glass-Effect-Login-Page-(Community)?node-id=2-172&t=BJwYvbwOWfZbG60E-0>)
 
+[![Game preview](/public/hero.png)](https://nekitcorp.github.io/authentication-form/)
+
 ## Features
 
 -   [Next.js](https://nextjs.org/) + [Static HTML Export](https://nextjs.org/docs/advanced-features/static-html-export)
