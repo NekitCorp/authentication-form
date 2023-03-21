@@ -1,3 +1,4 @@
+import { getAssetPath } from '@/utils';
 import clsx from 'clsx';
 import Image from 'next/image';
 import React from 'react';
@@ -61,9 +62,14 @@ export const PasswordInput: React.FC<InputProps> = ({ className, onChange }) => 
                     }
                 >
                     {showPassword ? (
-                        <Image src="icons/eye-off.svg" alt="Hide password icon" width={16} height={16} />
+                        <Image
+                            src={getAssetPath('/icons/eye-off.svg')}
+                            alt="Hide password icon"
+                            width={16}
+                            height={16}
+                        />
                     ) : (
-                        <Image src="icons/eye.svg" alt="Show password icon" width={16} height={16} />
+                        <Image src={getAssetPath('/icons/eye.svg')} alt="Show password icon" width={16} height={16} />
                     )}
                 </button>
                 <span className="visually-hidden" aria-live="polite">

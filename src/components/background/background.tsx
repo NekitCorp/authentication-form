@@ -1,3 +1,4 @@
+import { getAssetPath } from '@/utils';
 import clsx from 'clsx';
 import Image from 'next/image';
 import React from 'react';
@@ -30,7 +31,7 @@ export const Background: React.FC = () => {
                             : undefined,
                     }}
                 >
-                    <Image src={element.src} alt="" fill />
+                    <Image src={getAssetPath(element.src)} alt="" fill />
                 </div>
             ))}
         </div>

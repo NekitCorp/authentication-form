@@ -1,5 +1,5 @@
+import { PREFIX } from '@/utils';
 import { rest } from 'msw';
-import { PREFIX } from './config';
 
 const EMAIL = 'admin@gmail.com';
 const PASSWORD = 'qwerty123456';

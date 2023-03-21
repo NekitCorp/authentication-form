@@ -1,4 +1,4 @@
-import { PREFIX } from './config';
+import { PREFIX } from '@/utils';
 
 async function initMocks() {
     if (typeof window === 'undefined') {

@@ -1,3 +1,4 @@
+import { getAssetPath } from '@/utils';
 import clsx from 'clsx';
 import Image from 'next/image';
 import React from 'react';
@@ -11,7 +12,7 @@ type ProviderButtonProps = {
 export const ProviderButton: React.FC<ProviderButtonProps> = ({ name, className }) => {
     return (
         <button className={clsx(className, styles.button)} type="button">
-            <Image src={`icons/${name}.svg`} alt={`${name} icon`} width={24} height={24} />
+            <Image src={getAssetPath(`/icons/${name}.svg`)} alt={`${name} icon`} width={24} height={24} />
         </button>
     );
 };
