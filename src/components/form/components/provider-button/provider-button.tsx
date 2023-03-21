@@ -12,7 +12,7 @@ type ProviderButtonProps = {
 export const ProviderButton: React.FC<ProviderButtonProps> = ({ name, className }) => {
     return (
         <button className={clsx(className, styles.button)} type="button">
-            <Image src={getAssetPath(`/icons/${name}.svg`)} alt={`${name} icon`} width={24} height={24} />
+            <Image src={getAssetPath(`/icons/${name}.svg`)} alt={`${name} icon`} width={24} height={24} priority />
         </button>
     );
 };

@@ -31,7 +31,7 @@ export const Background: React.FC = () => {
                             : undefined,
                     }}
                 >
-                    <Image src={getAssetPath(element.src)} alt="" fill />
+                    <Image src={getAssetPath(element.src)} alt="" fill priority />
                 </div>
             ))}
         </div>

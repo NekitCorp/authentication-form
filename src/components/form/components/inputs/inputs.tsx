@@ -69,7 +69,13 @@ export const PasswordInput: React.FC<InputProps> = ({ className, onChange }) => 
                             height={16}
                         />
                     ) : (
-                        <Image src={getAssetPath('/icons/eye.svg')} alt="Show password icon" width={16} height={16} />
+                        <Image
+                            src={getAssetPath('/icons/eye.svg')}
+                            alt="Show password icon"
+                            width={16}
+                            height={16}
+                            priority
+                        />
                     )}
                 </button>
                 <span className="visually-hidden" aria-live="polite">
