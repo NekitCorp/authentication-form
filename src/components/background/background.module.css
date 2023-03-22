@@ -21,6 +21,12 @@
     user-select: none;
 }
 
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+    .element {
+        transform: translate(calc(var(--mouse-x) * var(--motion-speed)), calc(var(--mouse-y) * var(--motion-speed)));
+    }
+}
+
 /* Element styles */
 
 .redElement1 {

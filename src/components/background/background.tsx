@@ -2,20 +2,24 @@ import { getAssetPath } from '@/utils';
 import clsx from 'clsx';
 import Image from 'next/image';
 import React from 'react';
-import { useMedia, useWindowSize } from 'react-use';
-import { useMousePosition, usePrefersReducedMotion } from '../../hooks';
 import styles from './background.module.css';
 import { elements } from './data';
 
 export const Background: React.FC = () => {
-    const mousePosition = useMousePosition();
-    const prefersReducedMotion = usePrefersReducedMotion();
-    const windowSize = useWindowSize();
-    const isTouchDevice = useMedia('(hover: none)', true);
+    React.useEffect(() => {
+        const root = document.documentElement;
 
-    const motionEnable = !prefersReducedMotion && !isTouchDevice;
-    const x = mousePosition.x / windowSize.width;
-    const y = mousePosition.y / windowSize.height;
+        const updateMousePosition = (ev: MouseEvent) => {
+            root.style.setProperty('--mouse-x', ev.clientX / window.innerWidth + 'px');
+            root.style.setProperty('--mouse-y', ev.clientY / window.innerHeight + 'px');
+        };
+
+        window.addEventListener('mousemove', updateMousePosition);
+
+        return () => {
+            window.removeEventListener('mousemove', updateMousePosition);
+        };
+    }, []);
 
     return (
         <div className={styles.container}>
@@ -23,13 +27,7 @@ export const Background: React.FC = () => {
                 <div
                     key={i}
                     className={clsx(styles.element, element.className)}
-                    style={{
-                        transform: motionEnable
-                            ? `translate(${Math.ceil(x * element.motionSpeed)}px, ${Math.ceil(
-                                  y * element.motionSpeed,
-                              )}px)`
-                            : undefined,
-                    }}
+                    style={{ '--motion-speed': element.motionSpeed } as React.CSSProperties}
                 >
                     <Image src={getAssetPath(element.src)} alt="" fill priority />
                 </div>
