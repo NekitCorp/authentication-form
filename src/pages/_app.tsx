@@ -5,16 +5,15 @@ import type { AppProps } from 'next/app';
 import localFont from 'next/font/local';
 import Head from 'next/head';
 
-// Font files can be colocated inside of `pages`
 const gilroyFont = localFont({
     src: [
         {
-            path: './Gilroy-Light.woff2',
+            path: '../styles/fonts/Gilroy-Light.woff2',
             weight: '400',
             style: 'normal',
         },
         {
-            path: './Gilroy-ExtraBold.woff2',
+            path: '../styles/fonts/Gilroy-ExtraBold.woff2',
             weight: '700',
             style: 'normal',
         },
