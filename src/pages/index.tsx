@@ -1,4 +1,5 @@
-import { HomePage } from '@/components/home-page';
+import { Background } from '@/components/background';
+import { Form } from '@/components/form';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
@@ -13,7 +14,8 @@ const Home: NextPage = () => {
                 />
             </Head>
 
-            <HomePage />
+            <Background />
+            <Form />
         </>
     );
 };
