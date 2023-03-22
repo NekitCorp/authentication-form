@@ -9,12 +9,12 @@ import Head from 'next/head';
 const gilroyFont = localFont({
     src: [
         {
-            path: './Gilroy-Light.otf',
+            path: './Gilroy-Light.woff2',
             weight: '400',
             style: 'normal',
         },
         {
-            path: './Gilroy-ExtraBold.otf',
+            path: './Gilroy-ExtraBold.woff2',
             weight: '700',
             style: 'normal',
         },
