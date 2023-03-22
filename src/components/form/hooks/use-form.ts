@@ -13,11 +13,14 @@ interface UsernameFormElement extends HTMLFormElement {
 export function useForm() {
     const router = useRouter();
     const [error, setError] = React.useState<string | null>(null);
+    const [disabled, setDisabled] = React.useState(false);
 
     const clearError = () => setError(null);
 
     const handleSubmit = async (event: React.FormEvent<UsernameFormElement>) => {
         event.preventDefault();
+
+        setDisabled(true);
 
         const data = {
             email: event.currentTarget.elements.email.value,
@@ -39,8 +42,10 @@ export function useForm() {
             }
         } catch (error) {
             setError(error instanceof Error ? error.message : 'Unknown error');
+        } finally {
+            setDisabled(false);
         }
     };
 
-    return { clearError, error, handleSubmit };
+    return { clearError, disabled, error, handleSubmit };
 }

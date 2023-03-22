@@ -24,6 +24,10 @@
     color: rgb(var(--secondary-text-color));
 }
 
+.input:disabled {
+    opacity: 0.7;
+}
+
 /* Password input specific styles */
 
 .passwordInputWrapper {

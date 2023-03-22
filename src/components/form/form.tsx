@@ -8,7 +8,7 @@ import styles from './form.module.css';
 import { useForm } from './hooks/use-form';
 
 export const Form: React.FC = () => {
-    const { clearError, error, handleSubmit } = useForm();
+    const { clearError, disabled, error, handleSubmit } = useForm();
 
     return (
         <div className={styles.container}>
@@ -18,8 +18,8 @@ export const Form: React.FC = () => {
                 <h1 className={styles.header}>Login</h1>
 
                 {/* Inputs */}
-                <EmailInput className={styles.emailInputContainer} onChange={clearError} />
-                <PasswordInput className={styles.passwordInputContainer} onChange={clearError} />
+                <EmailInput className={styles.emailInputContainer} disabled={disabled} onChange={clearError} />
+                <PasswordInput className={styles.passwordInputContainer} disabled={disabled} onChange={clearError} />
 
                 {/* Forgot Password link */}
                 <a href="#" className={styles.forgotPasswordLink}>
@@ -30,14 +30,18 @@ export const Form: React.FC = () => {
                 <ServerError className={clsx(styles.text, styles.error)} error={error} />
 
                 {/* Submit button */}
-                <SignInButton className={styles.signInButton} shakeClassName={styles.signInButtonShake} />
+                <SignInButton
+                    className={styles.signInButton}
+                    disabled={disabled}
+                    shakeClassName={styles.signInButtonShake}
+                />
 
                 {/* Third party providers */}
                 <p className={clsx(styles.text, styles.continueWithText)}>or continue with</p>
                 <div className={styles.providers}>
-                    <ProviderButton className={styles.providerButton} name="google" />
-                    <ProviderButton className={styles.providerButton} name="github" />
-                    <ProviderButton className={styles.providerButton} name="facebook" />
+                    <ProviderButton className={styles.providerButton} disabled={disabled} name="google" />
+                    <ProviderButton className={styles.providerButton} disabled={disabled} name="github" />
+                    <ProviderButton className={styles.providerButton} disabled={disabled} name="facebook" />
                 </div>
 
                 {/* Register link */}

@@ -12,6 +12,8 @@ export const handlers = [
             return res(ctx.json({ login: true }));
         } else {
             return res(
+                // Delays response for 2000ms.
+                ctx.delay(2000),
                 ctx.status(403),
                 ctx.json({
                     error: 'Invalid email or password.',

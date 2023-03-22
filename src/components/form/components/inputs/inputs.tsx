@@ -6,10 +6,11 @@ import styles from './inputs.module.css';
 
 type InputProps = {
     className?: string;
+    disabled: boolean;
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
 };
 
-export const EmailInput: React.FC<InputProps> = ({ className, onChange }) => {
+export const EmailInput: React.FC<InputProps> = ({ className, disabled, onChange }) => {
     return (
         <div className={clsx(styles.inputContainer, className)}>
             <label className={styles.label} htmlFor="email">
@@ -17,6 +18,7 @@ export const EmailInput: React.FC<InputProps> = ({ className, onChange }) => {
             </label>
             <input
                 className={styles.input}
+                disabled={disabled}
                 required
                 type="email"
                 id="email"
@@ -29,7 +31,7 @@ export const EmailInput: React.FC<InputProps> = ({ className, onChange }) => {
     );
 };
 
-export const PasswordInput: React.FC<InputProps> = ({ className, onChange }) => {
+export const PasswordInput: React.FC<InputProps> = ({ className, disabled, onChange }) => {
     const [showPassword, setShowPassword] = React.useState(false);
 
     return (
@@ -40,6 +42,7 @@ export const PasswordInput: React.FC<InputProps> = ({ className, onChange }) => 
             <div className={styles.passwordInputWrapper}>
                 <input
                     className={styles.input}
+                    disabled={disabled}
                     required
                     minLength={8}
                     type={showPassword ? 'text' : 'password'}
@@ -52,6 +55,7 @@ export const PasswordInput: React.FC<InputProps> = ({ className, onChange }) => 
                 />
                 <button
                     className={styles.showPasswordButton}
+                    disabled={disabled}
                     onClick={() => setShowPassword((prev) => !prev)}
                     type="button"
                     aria-controls="password"
